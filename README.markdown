@@ -1,4 +1,4 @@
-# Kohana-Yahoo-Fiancne
+# Kohana-Yahoo-Finance
 
 This is a simple Kohana module used to get stock market data from Yahoo Finance API.
 This module was inspired by https://github.com/aygee/yahoo-finance-api
@@ -27,3 +27,4 @@ This is very simple:
 
 	$obj = new Kohana_YahooFinance();
 	$data = $obj->getQuotes('AAPL');
+	$datas = $obj->getQuotes(array('AAPL', 'MSFT'));
