@@ -3,6 +3,9 @@
 This is a simple Kohana module used to get stock market data from Yahoo Finance API.
 This module was inspired by https://github.com/aygee/yahoo-finance-api
 
+## Version
+
+Written for Kohana 3.3
 
 ## Installation
 
