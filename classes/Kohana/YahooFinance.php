@@ -15,10 +15,25 @@ class Kohana_YahooFinance {
 	//Attributes
 	private $yqlURL = 'http://query.yahooapis.com/v1/public/yql';
 	private $csvURL = 'http://ichart.finance.yahoo.com/table.csv';
+	private $newsURL = 'http://feeds.finance.yahoo.com/rss/2.0/headline?region=US&lang=en-US&s=';
 	private $options = array(
 		'format' => 'json', //No other format possible at this time
 		'env'    => 'http://datatables.org/alltables.env' //We need this env to query yahoo finance
 	);
+
+	/**
+	 * Get news for one or many symbols.
+	 * @param  array|string The stocks symbol we want the news for
+	 * @param  int          The amount of news wanted
+	 * @return string
+	 */
+	public function getNews($symbols, $n = 25)
+	{
+		if (is_string($symbols))
+			$symbols = array($symbols);
+
+		return Feed::parse($this->newsURL.implode(',', $symbols).'&n='.$n);
+	}
 
 	/**
 	 * Get quotes for one or many symbols.
